@@ -10,11 +10,11 @@ variable "key_name" {
   default = "lcchua-useast1-30072024"
 }
 
-variable "working_dir" {
+/* variable "working_dir" {
   description = "Pathname of my local working directory"
   type        = string
   default     = "/Users/laich/NTU_CE7"
-}
+} */
 
 variable "region" {
   description = "Name of aws region"
@@ -30,14 +30,14 @@ variable "instance_type" {
 }
 */
 
-variable "subnet_count" {
+/* variable "subnet_count" {
   description = "Number of subnets"
   type        = map(number)
   default = {
     public  = 3,
     private = 3
   }
-}
+} */
 
 variable "settings" {
   description = "Configuration settings for EC2 and RDS instances"
@@ -70,19 +70,19 @@ variable "my_ip" {
 
 # This varaible conatins the database master username.
 # This will be stored in a secrets file.
-variable "db_username" {
+/* variable "db_username" {
   description = "Database master username"
   type        = string
   sensitive   = true
-}
+} */
 
 # This variable conatins the database master password.
 # This will be stored in a secrets file.
-variable "db_password" {
+/* variable "db_password" {
   description = "Database master user password"
   type        = string
   sensitive   = true
-}
+} */
 
 variable "env" {
   description = "Environment of the build"

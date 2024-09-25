@@ -1,5 +1,6 @@
 module "lcchua-ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "5.7.0"
 
   name                   = "${var.stack_name}-${var.env}-ec2-server-${var.rnd_id}"
   instance_type          = var.settings.web_app.instance_type

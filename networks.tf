@@ -4,7 +4,7 @@
 
 module "lcchua-vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  #version = "5.13.0"
+  version = "5.13.0"
 
   name = "${var.stack_name}-${env}-tfmod-vpc-${rnd_id}"
   cidr = "10.0.0.0/16"
