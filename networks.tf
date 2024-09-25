@@ -36,7 +36,7 @@ module "lcchua-security-group" {
 
   name        = "${var.stack_name}-${var.env}-tfmod-sg-${var.rnd_id}"
   description = "Security group for http-https-ssh ports"
-  vpc_id      = module.vpc.vpc_id
+  vpc_id      = module.lcchua-vpc.default_vpc_id
 
   //ingress_cidr_blocks = ["10.10.0.0/16"]
   ingress_with_cidr_blocks = [
