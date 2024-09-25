@@ -6,7 +6,7 @@ module "lcchua-ec2-instance" {
   instance_type          = var.settings.web_app.instance_type
   key_name               = var.key_name
   monitoring             = true
-  vpc_security_group_ids = module.lcchua-security-group.security_group_id
+  vpc_security_group_ids = [module.lcchua-security-group.security_group_id]
   subnet_id              = module.lcchua-vpc.public_subnets[0]
 
   tags = {
