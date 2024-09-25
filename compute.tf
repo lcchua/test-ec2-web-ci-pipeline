@@ -1,5 +1,6 @@
 module "lcchua-ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "5.7.0"
 
   name                   = "${var.stack_name}-${var.env}-ec2-server-${var.rnd_id}"
   instance_type          = var.settings.web_app.instance_type
@@ -9,9 +10,9 @@ module "lcchua-ec2-instance" {
   subnet_id              = module.lcchua-vpc.public_subnets[0]
 
   tags = {
-    group = var.stack_name
+    group     = var.stack_name
     form_type = "Terraform Resources"
-    Name  = "${var.stack_name}-${var.env}-ec2-server-${var.rnd_id}"
+    Name      = "${var.stack_name}-${var.env}-ec2-server-${var.rnd_id}"
   }
 }
 output "lcchua-ec2-instance" {

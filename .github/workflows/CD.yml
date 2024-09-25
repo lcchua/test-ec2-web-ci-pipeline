@@ -29,7 +29,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ vars.AWS_REGION }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -38,8 +38,8 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan -no-color -input=false -var-file="./Environments/${{ github.event.inputs.env_select }}.tfvars" -out="${{ github.event.inputs.env_select }}_tf__out"
+        run: terraform plan -no-color -input=false -var-file="${{ github.event.inputs.env_select }}.tfvars" -out="${{ github.event.inputs.env_select }}_tf_out"
         continue-on-error: true
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve "terraform_out"
+        run: terraform apply -auto-approve "${{ github.event.inputs.env_select }}_tf_out"
